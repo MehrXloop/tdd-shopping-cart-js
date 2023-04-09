@@ -25,4 +25,10 @@ module.exports = class Cart {
            return `${cartItem.itemObj.name} x${cartItem.quantity} - $${cartItem.itemObj.price.toFixed(2)}`;
          });
        }
+
+       onSaleItem(){
+        return this.items.filter(item => item.itemObj.onSale).map((cartItem) => {
+           return `${cartItem.itemObj.name} x${cartItem.quantity} - $${((cartItem.itemObj.price/ 2 )* cartItem.quantity ).toFixed(2) }`;
+         })
+       }
 }
