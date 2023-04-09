@@ -3,4 +3,6 @@ module.exports = class Cart {
         this.items = [];
         this.totalPrice = 0;
       }
+
+      
 }

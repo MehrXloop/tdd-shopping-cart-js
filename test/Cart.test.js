@@ -9,4 +9,18 @@ describe('Cart', () => {
     expect(cart.items).to.deep.equal([]);
     expect(cart.totalPrice).to.be.equal(0);
   });
+
+   //AC 2:Given I have an empty cart, when I add an Item, then I expect to see totalPrice reflect the sum of all the Items in my cart, times the quantities of each item.
+
+   it("add item", () => {
+    //Arrange
+    const cart = new Cart();
+    const itemObj1 = new Item("Watch", 2000.0, true);
+    //Act
+    cart.addItem(itemObj1, 2);
+    const result = 4000.0;
+    //Assert
+    expect(cart.totalPrice).to.be.equal(result);
+  });
+
 })
