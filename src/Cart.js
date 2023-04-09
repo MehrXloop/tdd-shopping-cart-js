@@ -13,4 +13,10 @@ module.exports = class Cart {
     
         this.totalPrice += cartItem.itemObj.price * cartItem.quantity;
       }
+
+      itemQuantities() {
+        return this.items.map((cartItem) => {
+          return `${cartItem.itemObj.name} - x${cartItem.quantity}`;
+        });
+      }
 }
