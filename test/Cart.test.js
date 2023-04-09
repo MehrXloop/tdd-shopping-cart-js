@@ -67,4 +67,21 @@ describe('Cart', () => {
     //Assert
     expect(cart.totalPrice).to.be.equal(result);
   });
+
+    //AC 6:Given I have a cart with items that are not on sale, when I add items that are on sale, I expect onSaleItems() to include only the items on sale.
+
+    it("onSale", () => {
+        //Arrange
+        const cart = new Cart();
+        const itemObj1 = new Item("Watch", 2000.0, true);
+        const itemObj2 = new Item("Bracelet", 4000.0, false);
+        const itemObj3 = new Item("Ring", 1000.0, true);
+        //Act
+        cart.addItem(itemObj1, 2);
+        cart.addItem(itemObj2, 1);
+        cart.addItem(itemObj3, 1);
+        const result = ["Watch x2 - $2000.00", "Ring x1 - $500.00"];
+        //Assert
+        expect(cart.onSaleItem()).to.deep.equal(result);
+      });
 })
