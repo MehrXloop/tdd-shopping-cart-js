@@ -51,5 +51,20 @@ describe('Cart', () => {
     const result = ["Watch x2 - $2000.00", "Bracelet x1 - $4000.00"];
     //Assert
     expect(cart.itemizedList()).to.deep.equal(result);
-  });  
+  });
+  
+   //AC 5:Given I have an empty cart, when I add more than one of an item, then I expect totalPrice to reflect both the item price and quantity.
+
+   it("price and quantity", () => {
+    //Arrange
+    const cart = new Cart();
+    const itemObj1 = new Item("Watch", 2000.0, true);
+    const itemObj2 = new Item("Bracelet", 4000.0, false);
+    //Act
+    cart.addItem(itemObj1, 2);
+    cart.addItem(itemObj2, 1);
+    const result = 8000.0;
+    //Assert
+    expect(cart.totalPrice).to.be.equal(result);
+  });
 })
