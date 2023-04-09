@@ -22,5 +22,21 @@ describe('Cart', () => {
     //Assert
     expect(cart.totalPrice).to.be.equal(result);
   });
+  
+   //AC 3:Given I have an empty cart, when I add more than one of an item, then I expect itemQuantities() to show the number of items I have added.
 
+   it("item Quantities", () => {
+    //Arrange
+    const cart = new Cart();
+    const itemObj1 = new Item("Watch", 2000.0, true);
+    const itemObj2 = new Item("Bracelet", 4000.0, false);
+    //Act
+    cart.addItem(itemObj1, 2);
+    cart.addItem(itemObj2, 1);
+    const result = ["Watch - x2", "Bracelet - x1"];
+    //Assert
+    expect(cart.itemQuantities()).to.deep.equal(result);
+  });
+
+  
 })
