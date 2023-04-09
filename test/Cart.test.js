@@ -38,5 +38,18 @@ describe('Cart', () => {
     expect(cart.itemQuantities()).to.deep.equal(result);
   });
 
-  
+   //AC 4:Given I have an empty cart, when I add items, then I expect itemizedList() reflect the items I have added along with their price and quantity.
+
+   it("added items with price", () => {
+    //Arrange
+    const cart = new Cart();
+    const itemObj1 = new Item("Watch", 2000.0, true);
+    const itemObj2 = new Item("Bracelet", 4000.0, false);
+    //Act
+    cart.addItem(itemObj1, 2);
+    cart.addItem(itemObj2, 1);
+    const result = ["Watch x2 - $2000.00", "Bracelet x1 - $4000.00"];
+    //Assert
+    expect(cart.itemizedList()).to.deep.equal(result);
+  });  
 })
