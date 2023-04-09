@@ -19,4 +19,10 @@ module.exports = class Cart {
           return `${cartItem.itemObj.name} - x${cartItem.quantity}`;
         });
       }
+
+      itemizedList(){
+        return this.items.map((cartItem) => {
+           return `${cartItem.itemObj.name} x${cartItem.quantity} - $${cartItem.itemObj.price.toFixed(2)}`;
+         });
+       }
 }
