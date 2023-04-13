@@ -1,4 +1,5 @@
 const Cart = require('../src/Cart.js');
+const Item = require('../src/Item.js')
 const expect = require('chai').expect;
 
 describe('Cart', () => {
